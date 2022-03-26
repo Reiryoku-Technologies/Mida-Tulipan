@@ -1,3 +1,3 @@
-import { MyPlugin } from "!/src/core/MyPlugin";
+import { MidaTulipanPlugin } from "!/src/core/MidaTulipanPlugin";
 
-export default new MyPlugin();
+export default new MidaTulipanPlugin();

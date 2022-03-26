@@ -1,5 +1,5 @@
 {
-    "name": "@reiryoku/mida-plugin-template",
+    "name": "@reiryoku/mida-tulipan",
     "version": "1.0.0",
     "description": "A Mida plugin template",
     "license": "MIT",
@@ -32,9 +32,12 @@
         "src",
         "tests"
     ],
+    "dependencies": {
+        "tulind": "^0.8.20"
+    },
     "devDependencies": {
         "@reiryoku/eslint-config-reiryoku": "^1.0.0",
-        "@reiryoku/mida": "^4.0.0",
+        "@reiryoku/mida": "file:../Mida",
         "@types/jest": "^27.4.1",
         "@types/node": "^17.0.22",
         "@typescript-eslint/eslint-plugin": "^5.16.0",
