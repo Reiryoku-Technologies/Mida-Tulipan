@@ -13,7 +13,5 @@ export class MidaTulipanPlugin extends MidaPlugin {
     }
 
     public override install (actions: MidaPluginActions): void {
-        actions.addIndicator("RSI", RelativeStrengthIndexIndicator);
-        actions.addIndicator("SMA", SimpleMovingAverageIndicator);
     }
 }

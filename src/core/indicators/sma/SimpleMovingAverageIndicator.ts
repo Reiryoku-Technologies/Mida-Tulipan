@@ -17,11 +17,11 @@ export class SimpleMovingAverageIndicator extends MidaIndicator {
         this.#periodsLength = periodsLength ?? DEFAULT_PERIODS_LENGTH;
     }
 
-    public async calculate (input: number[]): Promise<number[]> {
+    public override async calculate (input: number[]): Promise<number[]> {
         return new Promise((resolve: (value: number[]) => unknown): void => {
-            tulind.indicators.sma.indicator([ ...input, ], [ this.#periodsLength, ], (error: unknown, values: number[]) => {
+            tulind.indicators.sma.indicator([ [ ...input, ], ], [ this.#periodsLength, ], (error: unknown, values: number[][]) => {
                 if (Array.isArray(values)) {
-                    resolve(values);
+                    resolve(values[0]);
                 }
             });
         });
