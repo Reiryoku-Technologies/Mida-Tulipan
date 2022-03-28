@@ -1,1 +1,1 @@
-The plugin main source code
+The plugin core source code
