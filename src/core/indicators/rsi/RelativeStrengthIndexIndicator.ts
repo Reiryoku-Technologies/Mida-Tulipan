@@ -31,8 +31,7 @@ export class RelativeStrengthIndexIndicator extends MidaIndicator {
 
     public constructor ({ periodsLength, }: RelativeStrengthIndexIndicatorParameters) {
         super({
-            id: "rsi",
-            name: "RSI",
+            name: "Relative Strength Index",
             version: "1.0.0",
         });
 

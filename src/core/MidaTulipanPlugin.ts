@@ -20,20 +20,31 @@
  * THE SOFTWARE.
 */
 
-import { MidaPlugin, MidaPluginActions } from "@reiryoku/mida";
+import {
+    GenericObject,
+    MidaPlugin,
+    MidaPluginActions,
+    MidaIndicator,
+} from "@reiryoku/mida";
+import { RelativeStrengthIndexIndicator } from "#indicators/rsi/RelativeStrengthIndexIndicator";
+import { SimpleMovingAverageIndicator } from "#indicators/sma/SimpleMovingAverageIndicator";
+import { WilliamsRIndicator } from "#indicators/willr/WilliamsRIndicator";
+import { WeightedMovingAverageIndicator } from "#indicators/wma/WeightedMovingAverageIndicator";
 
 class MidaTulipanPlugin extends MidaPlugin {
     public constructor () {
         super({
-            id: "mida-tulipan",
             name: "Mida Tulipan",
-            description: "This plugin does nothing",
+            description: "A Mida plugin providing technical analysis indicators",
             version: "1.0.0",
         });
     }
 
     public override install (actions: MidaPluginActions): void {
-        // Silence is golden
+        actions.addIndicator("RSI", (parameters: GenericObject): MidaIndicator => new RelativeStrengthIndexIndicator(parameters));
+        actions.addIndicator("SMA", (parameters: GenericObject): MidaIndicator => new SimpleMovingAverageIndicator(parameters));
+        actions.addIndicator("Williams/%R", (parameters: GenericObject): MidaIndicator => new WilliamsRIndicator(parameters));
+        actions.addIndicator("WMA", (parameters: GenericObject): MidaIndicator => new WeightedMovingAverageIndicator(parameters));
     }
 }
 
@@ -45,4 +56,10 @@ export { RelativeStrengthIndexIndicatorParameters } from "#indicators/rsi/Relati
 
 export { SimpleMovingAverageIndicator } from "#indicators/sma/SimpleMovingAverageIndicator";
 export { SimpleMovingAverageIndicatorParameters } from "#indicators/sma/SimpleMovingAverageIndicatorParameters";
+
+export { WilliamsRIndicator } from "#indicators/willr/WilliamsRIndicator";
+export { WilliamsRIndicatorParameters } from "#indicators/willr/WilliamsRIndicatorParameters";
+
+export { WeightedMovingAverageIndicator } from "#indicators/wma/WeightedMovingAverageIndicator";
+export { WeightedMovingAverageIndicatorParameters } from "#indicators/wma/WeightedMovingAverageIndicatorParameters";
 // </public-api>

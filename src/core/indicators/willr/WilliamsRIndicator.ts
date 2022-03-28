@@ -21,26 +21,30 @@
 */
 
 import { MidaIndicator } from "@reiryoku/mida";
-import { SimpleMovingAverageIndicatorParameters } from "#indicators/sma/SimpleMovingAverageIndicatorParameters";
+import { WilliamsRIndicatorParameters } from "#indicators/willr/WilliamsRIndicatorParameters";
 
-const DEFAULT_PERIODS_LENGTH: number = 50;
+const DEFAULT_PERIODS_LENGTH: number = 14;
 const tulind = require("tulind");
 
-export class SimpleMovingAverageIndicator extends MidaIndicator {
+export class WilliamsRIndicator extends MidaIndicator {
     readonly #periodsLength: number;
 
-    public constructor ({ periodsLength, }: SimpleMovingAverageIndicatorParameters) {
+    public constructor ({ periodsLength, }: WilliamsRIndicatorParameters) {
         super({
-            name: "Simple Moving Average",
+            name: "Williams %R",
             version: "1.0.0",
         });
 
         this.#periodsLength = periodsLength ?? DEFAULT_PERIODS_LENGTH;
     }
 
-    public override async calculate (input: number[]): Promise<number[]> {
+    public override async calculate (input: number[][]): Promise<number[]> {
         return new Promise((resolve: (value: number[]) => void): void => {
-            tulind.indicators.sma.indicator([ [ ...input, ], ], [ this.#periodsLength, ], (error: unknown, values: number[][]) => {
+            tulind.indicators.willr.indicator([
+                [ ...input[0], ], // H
+                [ ...input[1], ], // L
+                [ ...input[2], ], // C
+            ], [ this.#periodsLength, ], (error: unknown, values: number[][]) => {
                 if (Array.isArray(values)) {
                     resolve(values[0]);
                 }
