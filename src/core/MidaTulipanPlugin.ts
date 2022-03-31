@@ -21,10 +21,10 @@
 */
 
 import {
-    GenericObject,
+    MidaIndicator,
     MidaPlugin,
     MidaPluginActions,
-    MidaIndicator,
+    GenericObject,
 } from "@reiryoku/mida";
 import { RelativeStrengthIndexIndicator } from "#indicators/rsi/RelativeStrengthIndexIndicator";
 import { SimpleMovingAverageIndicator } from "#indicators/sma/SimpleMovingAverageIndicator";
@@ -34,6 +34,7 @@ import { WeightedMovingAverageIndicator } from "#indicators/wma/WeightedMovingAv
 class MidaTulipanPlugin extends MidaPlugin {
     public constructor () {
         super({
+            id: "91788fa4-6410-4479-8e08-9261a474a46f",
             name: "Mida Tulipan",
             description: "A Mida plugin providing technical analysis indicators",
             version: "1.0.0",
