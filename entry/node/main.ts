@@ -20,4 +20,4 @@
  * THE SOFTWARE.
 */
 
-module.exports = require("!/plugin.mida");
+module.exports = require("!/plugin.mida").default;
