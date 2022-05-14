@@ -1,5 +1,5 @@
 /*
- * Copyright Reiryoku Technologies and its contributors, https://www.reiryoku.com
+ * Copyright Reiryoku Technologies and its contributors, www.reiryoku.com, www.mida.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,13 +31,16 @@ import { SimpleMovingAverageIndicator } from "#indicators/sma/SimpleMovingAverag
 import { WilliamsRIndicator } from "#indicators/willr/WilliamsRIndicator";
 import { WeightedMovingAverageIndicator } from "#indicators/wma/WeightedMovingAverageIndicator";
 
-class MidaTulipanPlugin extends MidaPlugin {
+export const pluginId: string = "91788fa4-6410-4479-8e08-9261a474a46f";
+export const pluginVersion: string = "2.0.0";
+
+class TulipanPlugin extends MidaPlugin {
     public constructor () {
         super({
-            id: "91788fa4-6410-4479-8e08-9261a474a46f",
+            id: pluginId,
             name: "Mida Tulipan",
             description: "A Mida plugin providing technical analysis indicators",
-            version: "1.0.0",
+            version: pluginVersion,
         });
     }
 
@@ -50,7 +53,7 @@ class MidaTulipanPlugin extends MidaPlugin {
 }
 
 // <public-api>
-export { MidaTulipanPlugin };
+export { TulipanPlugin };
 
 export { RelativeStrengthIndexIndicator } from "#indicators/rsi/RelativeStrengthIndexIndicator";
 export { RelativeStrengthIndexIndicatorParameters } from "#indicators/rsi/RelativeStrengthIndexIndicatorParameters";

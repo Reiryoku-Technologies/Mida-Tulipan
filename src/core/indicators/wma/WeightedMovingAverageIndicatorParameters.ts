@@ -1,5 +1,5 @@
 /*
- * Copyright Reiryoku Technologies and its contributors, https://www.reiryoku.com
+ * Copyright Reiryoku Technologies and its contributors, www.reiryoku.com, www.mida.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal

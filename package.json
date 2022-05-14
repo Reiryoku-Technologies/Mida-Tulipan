@@ -1,6 +1,6 @@
 {
     "name": "@reiryoku/mida-tulipan",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "description": "A Mida plugin providing technical analysis indicators",
     "license": "MIT",
     "homepage": "https://github.com/Reiryoku-Technologies/Mida-Plugin-Template",
@@ -20,7 +20,6 @@
         "lint": "eslint . --ext .ts,.js",
         "build": "ttsc",
         "test": "npm run build && jest --verbose",
-        "create-docs": "typedoc",
         "safe-build": "rm -rf ./build && npm run lint && npm run build && jest",
         "prepublishOnly": "npm run safe-build"
     },
@@ -37,19 +36,18 @@
     },
     "devDependencies": {
         "@reiryoku/eslint-config-reiryoku": "^1.0.0",
-        "@reiryoku/mida": "^5.0.1",
-        "@types/jest": "^27.4.1",
-        "@types/node": "^17.0.22",
-        "@typescript-eslint/eslint-plugin": "^5.16.0",
-        "@typescript-eslint/parser": "^5.16.0",
-        "eslint": "^8.11.0",
-        "jest": "^27.5.1",
+        "@reiryoku/mida": "^7.0.0",
+        "@types/jest": "^27.5.1",
+        "@types/node": "^17.0.33",
+        "@typescript-eslint/eslint-plugin": "^5.23.0",
+        "@typescript-eslint/parser": "^5.23.0",
+        "eslint": "^8.15.0",
+        "jest": "^28.1.0",
         "ttypescript": "^1.5.13",
-        "typedoc": "^0.22.13",
-        "typescript": "^4.6.2",
+        "typescript": "^4.6.4",
         "typescript-transform-paths": "^3.3.1"
     },
     "peerDependencies": {
-        "@reiryoku/mida": "^5.0.1"
+        "@reiryoku/mida": ">=7"
     }
 }

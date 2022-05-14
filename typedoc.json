@@ -1,7 +1,0 @@
-{
-    "name": "Mida Tulipan",
-    "includeVersion": true,
-    "excludePrivate": true,
-    "entryPoints": [ "./entry/node/main.ts" ],
-    "out": "docs/typedoc"
-}
