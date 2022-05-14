@@ -1,3 +1,6 @@
+### Features
+* **_BREAKING_** Shorten APIs names [#2](https://github.com/Reiryoku-Technologies/Mida-Tulipan/pull/2)
+
 1.0.1 - 01-04-2022
 ===================
 ### Bug fixes
