@@ -20,6 +20,35 @@
  * THE SOFTWARE.
 */
 
-export type RelativeStrengthIndexIndicatorParameters = {
-    periodsLength?: number;
-};
+import { MidaIndicator } from "@reiryoku/mida";
+import { WilliamsRParameters } from "#indicators/willr/WilliamsRParameters";
+
+const DEFAULT_PERIODS_LENGTH: number = 14;
+const tulind = require("tulind");
+
+export class WilliamsR extends MidaIndicator {
+    readonly #periodsLength: number;
+
+    public constructor ({ periodsLength, }: WilliamsRParameters) {
+        super({
+            name: "Williams %R",
+            version: "1.0.0",
+        });
+
+        this.#periodsLength = periodsLength ?? DEFAULT_PERIODS_LENGTH;
+    }
+
+    public override async calculate (input: number[][]): Promise<number[]> {
+        return new Promise((resolve: (value: number[]) => void): void => {
+            tulind.indicators.willr.indicator([
+                [ ...input[0], ], // H
+                [ ...input[1], ], // L
+                [ ...input[2], ], // C
+            ], [ this.#periodsLength, ], (error: unknown, values: number[][]) => {
+                if (Array.isArray(values)) {
+                    resolve(values[0]);
+                }
+            });
+        });
+    }
+}

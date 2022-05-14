@@ -20,6 +20,6 @@
  * THE SOFTWARE.
 */
 
-export type WilliamsRIndicatorParameters = {
+export type WilliamsRParameters = {
     periodsLength?: number;
 };

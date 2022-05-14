@@ -20,31 +20,6 @@
  * THE SOFTWARE.
 */
 
-import { MidaIndicator } from "@reiryoku/mida";
-import { WeightedMovingAverageIndicatorParameters } from "#indicators/wma/WeightedMovingAverageIndicatorParameters";
-
-const DEFAULT_PERIODS_LENGTH: number = 50;
-const tulind = require("tulind");
-
-export class WeightedMovingAverageIndicator extends MidaIndicator {
-    readonly #periodsLength: number;
-
-    public constructor ({ periodsLength, }: WeightedMovingAverageIndicatorParameters) {
-        super({
-            name: "Weighted Moving Average",
-            version: "1.0.0",
-        });
-
-        this.#periodsLength = periodsLength ?? DEFAULT_PERIODS_LENGTH;
-    }
-
-    public override async calculate (input: number[]): Promise<number[]> {
-        return new Promise((resolve: (value: number[]) => void): void => {
-            tulind.indicators.wma.indicator([ [ ...input, ], ], [ this.#periodsLength, ], (error: unknown, values: number[][]) => {
-                if (Array.isArray(values)) {
-                    resolve(values[0]);
-                }
-            });
-        });
-    }
-}
+export type WmaParameters = {
+    periodsLength?: number;
+};

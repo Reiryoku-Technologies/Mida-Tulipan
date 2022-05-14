@@ -20,6 +20,31 @@
  * THE SOFTWARE.
 */
 
-export type SimpleMovingAverageIndicatorParameters = {
-    periodsLength?: number;
-};
+import { MidaIndicator } from "@reiryoku/mida";
+import { RsiParameters } from "#indicators/rsi/RsiParameters";
+
+const DEFAULT_PERIODS_LENGTH: number = 14;
+const tulind = require("tulind");
+
+export class Rsi extends MidaIndicator {
+    readonly #periodsLength: number;
+
+    public constructor ({ periodsLength, }: RsiParameters) {
+        super({
+            name: "Relative Strength Index",
+            version: "1.0.0",
+        });
+
+        this.#periodsLength = periodsLength ?? DEFAULT_PERIODS_LENGTH;
+    }
+
+    public override async calculate (input: number[]): Promise<number[]> {
+        return new Promise((resolve: (value: number[]) => void): void => {
+            tulind.indicators.rsi.indicator([ [ ...input, ], ], [ this.#periodsLength, ], (error: unknown, values: number[][]) => {
+                if (Array.isArray(values)) {
+                    resolve(values[0]);
+                }
+            });
+        });
+    }
+}

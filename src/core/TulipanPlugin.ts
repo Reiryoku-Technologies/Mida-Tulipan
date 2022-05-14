@@ -26,10 +26,10 @@ import {
     MidaPluginActions,
     GenericObject,
 } from "@reiryoku/mida";
-import { RelativeStrengthIndexIndicator } from "#indicators/rsi/RelativeStrengthIndexIndicator";
-import { SimpleMovingAverageIndicator } from "#indicators/sma/SimpleMovingAverageIndicator";
-import { WilliamsRIndicator } from "#indicators/willr/WilliamsRIndicator";
-import { WeightedMovingAverageIndicator } from "#indicators/wma/WeightedMovingAverageIndicator";
+import { Rsi } from "#indicators/rsi/Rsi";
+import { Sma } from "#indicators/sma/Sma";
+import { WilliamsR } from "#indicators/willr/WilliamsR";
+import { Wma } from "#indicators/wma/Wma";
 
 export const pluginId: string = "91788fa4-6410-4479-8e08-9261a474a46f";
 export const pluginVersion: string = "2.0.0";
@@ -45,25 +45,25 @@ class TulipanPlugin extends MidaPlugin {
     }
 
     public override install (actions: MidaPluginActions): void {
-        actions.addIndicator("RSI", (parameters: GenericObject): MidaIndicator => new RelativeStrengthIndexIndicator(parameters));
-        actions.addIndicator("SMA", (parameters: GenericObject): MidaIndicator => new SimpleMovingAverageIndicator(parameters));
-        actions.addIndicator("Williams/%R", (parameters: GenericObject): MidaIndicator => new WilliamsRIndicator(parameters));
-        actions.addIndicator("WMA", (parameters: GenericObject): MidaIndicator => new WeightedMovingAverageIndicator(parameters));
+        actions.addIndicator("RSI", (parameters: GenericObject): MidaIndicator => new Rsi(parameters));
+        actions.addIndicator("SMA", (parameters: GenericObject): MidaIndicator => new Sma(parameters));
+        actions.addIndicator("Williams/%R", (parameters: GenericObject): MidaIndicator => new WilliamsR(parameters));
+        actions.addIndicator("WMA", (parameters: GenericObject): MidaIndicator => new Wma(parameters));
     }
 }
 
 // <public-api>
 export { TulipanPlugin };
 
-export { RelativeStrengthIndexIndicator } from "#indicators/rsi/RelativeStrengthIndexIndicator";
-export { RelativeStrengthIndexIndicatorParameters } from "#indicators/rsi/RelativeStrengthIndexIndicatorParameters";
+export { Rsi } from "#indicators/rsi/Rsi";
+export { RsiParameters } from "#indicators/rsi/RsiParameters";
 
-export { SimpleMovingAverageIndicator } from "#indicators/sma/SimpleMovingAverageIndicator";
-export { SimpleMovingAverageIndicatorParameters } from "#indicators/sma/SimpleMovingAverageIndicatorParameters";
+export { Sma } from "#indicators/sma/Sma";
+export { SmaParameters } from "#indicators/sma/SmaParameters";
 
-export { WilliamsRIndicator } from "#indicators/willr/WilliamsRIndicator";
-export { WilliamsRIndicatorParameters } from "#indicators/willr/WilliamsRIndicatorParameters";
+export { WilliamsR } from "#indicators/willr/WilliamsR";
+export { WilliamsRParameters } from "#indicators/willr/WilliamsRParameters";
 
-export { WeightedMovingAverageIndicator } from "#indicators/wma/WeightedMovingAverageIndicator";
-export { WeightedMovingAverageIndicatorParameters } from "#indicators/wma/WeightedMovingAverageIndicatorParameters";
+export { Wma } from "#indicators/wma/Wma";
+export { WmaParameters } from "#indicators/wma/WmaParameters";
 // </public-api>
