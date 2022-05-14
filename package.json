@@ -3,9 +3,9 @@
     "version": "2.0.0",
     "description": "A Mida plugin providing technical analysis indicators",
     "license": "MIT",
-    "homepage": "https://github.com/Reiryoku-Technologies/Mida-Plugin-Template",
+    "homepage": "https://github.com/Reiryoku-Technologies/Mida-Tulipan",
     "bugs": {
-        "url": "https://github.com/Reiryoku-Technologies/Mida-Plugin-Template/issues",
+        "url": "https://github.com/Reiryoku-Technologies/Mida-Tulipan/issues",
         "email": "dev@reiryoku.com"
     },
     "author": {
@@ -14,7 +14,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Reiryoku-Technologies/Mida-Plugin-Template.git"
+        "url": "https://github.com/Reiryoku-Technologies/Mida-Tulipan.git"
     },
     "scripts": {
         "lint": "eslint . --ext .ts,.js",
