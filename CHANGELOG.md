@@ -1,3 +1,6 @@
+### Features
+* Add EMA indicator [#3](https://github.com/Reiryoku-Technologies/Mida-Tulipan/pull/3)
+
 2.0.0 - 14-05-2022
 ===================
 ### Features
