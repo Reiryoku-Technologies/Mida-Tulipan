@@ -20,8 +20,8 @@
  * THE SOFTWARE.
 */
 
-import { MidaIndicator } from "@reiryoku/mida";
-import { SmaParameters } from "#indicators/sma/SmaParameters";
+import { MidaIndicator, } from "@reiryoku/mida";
+import { SmaParameters, } from "#indicators/sma/SmaParameters";
 
 const DEFAULT_PERIODS_LENGTH: number = 50;
 const tulind = require("tulind");
