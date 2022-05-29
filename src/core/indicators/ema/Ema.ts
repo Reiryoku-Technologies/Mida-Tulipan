@@ -21,17 +21,17 @@
 */
 
 import { MidaIndicator, } from "@reiryoku/mida";
-import { WmaParameters, } from "#indicators/wma/WmaParameters";
+import { EmaParameters, } from "#indicators/ema/EmaParameters";
 
 const DEFAULT_PERIODS_LENGTH: number = 50;
 const tulind = require("tulind");
 
-export class Wma extends MidaIndicator {
+export class Ema extends MidaIndicator {
     readonly #periodsLength: number;
 
-    public constructor ({ periodsLength, }: WmaParameters) {
+    public constructor ({ periodsLength, }: EmaParameters) {
         super({
-            name: "Weighted Moving Average",
+            name: "Exponential Moving Average",
             version: "1.0.0",
         });
 
@@ -40,7 +40,7 @@ export class Wma extends MidaIndicator {
 
     public override async calculate (input: number[]): Promise<number[]> {
         return new Promise((resolve: (value: number[]) => void): void => {
-            tulind.indicators.wma.indicator([ [ ...input, ], ], [ this.#periodsLength, ], (error: unknown, values: number[][]) => {
+            tulind.indicators.ema.indicator([ [ ...input, ], ], [ this.#periodsLength, ], (error: unknown, values: number[][]) => {
                 if (Array.isArray(values)) {
                     resolve(values[0]);
                 }

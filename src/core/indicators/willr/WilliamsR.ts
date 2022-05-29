@@ -20,8 +20,8 @@
  * THE SOFTWARE.
 */
 
-import { MidaIndicator } from "@reiryoku/mida";
-import { WilliamsRParameters } from "#indicators/willr/WilliamsRParameters";
+import { MidaIndicator, } from "@reiryoku/mida";
+import { WilliamsRParameters, } from "#indicators/willr/WilliamsRParameters";
 
 const DEFAULT_PERIODS_LENGTH: number = 14;
 const tulind = require("tulind");

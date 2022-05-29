@@ -20,8 +20,8 @@
  * THE SOFTWARE.
 */
 
-import { MidaIndicator } from "@reiryoku/mida";
-import { RsiParameters } from "#indicators/rsi/RsiParameters";
+import { MidaIndicator, } from "@reiryoku/mida";
+import { RsiParameters, } from "#indicators/rsi/RsiParameters";
 
 const DEFAULT_PERIODS_LENGTH: number = 14;
 const tulind = require("tulind");

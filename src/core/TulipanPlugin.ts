@@ -26,13 +26,14 @@ import {
     MidaPluginActions,
     GenericObject,
 } from "@reiryoku/mida";
-import { Rsi } from "#indicators/rsi/Rsi";
-import { Sma } from "#indicators/sma/Sma";
-import { WilliamsR } from "#indicators/willr/WilliamsR";
-import { Wma } from "#indicators/wma/Wma";
+import { Ema, } from "#indicators/ema/Ema";
+import { Rsi, } from "#indicators/rsi/Rsi";
+import { Sma, } from "#indicators/sma/Sma";
+import { WilliamsR, } from "#indicators/willr/WilliamsR";
+import { Wma, } from "#indicators/wma/Wma";
 
-export const pluginId: string = "91788fa4-6410-4479-8e08-9261a474a46f";
-export const pluginVersion: string = "2.0.0";
+const pluginId: string = "91788fa4-6410-4479-8e08-9261a474a46f";
+const pluginVersion: string = "2.0.0";
 
 class TulipanPlugin extends MidaPlugin {
     public constructor () {
@@ -45,6 +46,7 @@ class TulipanPlugin extends MidaPlugin {
     }
 
     public override install (actions: MidaPluginActions): void {
+        actions.addIndicator("EMA", (parameters: GenericObject): MidaIndicator => new Ema(parameters));
         actions.addIndicator("RSI", (parameters: GenericObject): MidaIndicator => new Rsi(parameters));
         actions.addIndicator("SMA", (parameters: GenericObject): MidaIndicator => new Sma(parameters));
         actions.addIndicator("Williams/%R", (parameters: GenericObject): MidaIndicator => new WilliamsR(parameters));
@@ -53,17 +55,22 @@ class TulipanPlugin extends MidaPlugin {
 }
 
 // <public-api>
-export { TulipanPlugin };
+export { pluginId, pluginVersion, };
 
-export { Rsi } from "#indicators/rsi/Rsi";
-export { RsiParameters } from "#indicators/rsi/RsiParameters";
+export { TulipanPlugin, };
 
-export { Sma } from "#indicators/sma/Sma";
-export { SmaParameters } from "#indicators/sma/SmaParameters";
+export { Ema, } from "#indicators/ema/Ema";
+export { EmaParameters, } from "#indicators/ema/EmaParameters";
 
-export { WilliamsR } from "#indicators/willr/WilliamsR";
-export { WilliamsRParameters } from "#indicators/willr/WilliamsRParameters";
+export { Rsi, } from "#indicators/rsi/Rsi";
+export { RsiParameters, } from "#indicators/rsi/RsiParameters";
 
-export { Wma } from "#indicators/wma/Wma";
-export { WmaParameters } from "#indicators/wma/WmaParameters";
+export { Sma, } from "#indicators/sma/Sma";
+export { SmaParameters, } from "#indicators/sma/SmaParameters";
+
+export { WilliamsR, } from "#indicators/willr/WilliamsR";
+export { WilliamsRParameters, } from "#indicators/willr/WilliamsRParameters";
+
+export { Wma, } from "#indicators/wma/Wma";
+export { WmaParameters, } from "#indicators/wma/WmaParameters";
 // </public-api>
