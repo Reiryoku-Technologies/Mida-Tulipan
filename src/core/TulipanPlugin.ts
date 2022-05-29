@@ -33,7 +33,7 @@ import { WilliamsR, } from "#indicators/willr/WilliamsR";
 import { Wma, } from "#indicators/wma/Wma";
 
 const pluginId: string = "91788fa4-6410-4479-8e08-9261a474a46f";
-const pluginVersion: string = "2.0.0";
+const pluginVersion: string = "2.1.0";
 
 class TulipanPlugin extends MidaPlugin {
     public constructor () {
