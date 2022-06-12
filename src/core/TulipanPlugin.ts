@@ -77,5 +77,5 @@ export { Wma, } from "#indicators/wma/Wma";
 export { WmaParameters, } from "#indicators/wma/WmaParameters";
 
 export { PivotPoint, } from '#indicators/pivot-point/pivotpoint';
-export { Candle, Type, StandardPivotPoints, FibonacciPivotPoints, PivotPointParameters } from '#indicators/pivot-point/PivotPointParameters';
+export { PivotPointParameters, } from '#indicators/pivot-point/PivotPointParameters';
 // </public-api>
