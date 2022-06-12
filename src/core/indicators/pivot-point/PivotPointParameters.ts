@@ -29,30 +29,30 @@ export enum Type {
 };
 
 
-export class PivotPoints  {
+abstract class PivotPoints  {
     _r1?: number;
     _r2?: number;
     _r3?: number;
-    _r4?: number;
     _pp?: number;
     _s1?: number;
     _s2?: number;
     _s3?: number;
-    _s4?: number;
 
-    constructor(r1: number, r2: number, r3: number, r4: number, pp: number, s1: number, s2: number, s3: number, s4: number) {
+    constructor(r1: number, r2: number, r3: number, pp: number, s1: number, s2: number, s3: number) {
 
         this._r1 = r1;
         this._r2 = r2;
         this._r3 = r3;
-        this._r4 = r4;
         this._pp = pp;
         this._s1 = s1;
         this._s2 = s2;
         this._s1 = s3;
-        this._s4 = s4;
     }
 }
+
+export class StandardPivotPoints extends PivotPoints {}
+
+export class FibonacciPivotPoints extends PivotPoints {}
 
 export class Candle {
     _open?: number;

@@ -19,7 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
 */
-import { PivotPointParameters, Type, PivotPoints, Candle } from "#indicators/pivot-point/PivotPointParameters";
+
+import { PivotPointParameters, Type, StandardPivotPoints, FibonacciPivotPoints, Candle } from "#indicators/pivot-point/PivotPointParameters";
 
 const DEFAULT_PIVOT_POINT_TYPE: Type = Type.STANDARD;
 const DEFAULT_PRICE = 0;
@@ -42,7 +43,7 @@ export class PivotPoint  {
         this.#close = candle?._close ?? DEFAULT_PRICE;
     }
 
-    public async calculate(pivotPointParameters: PivotPointParameters): Promise<PivotPoints> {
+    public async calculate(pivotPointParameters: PivotPointParameters): Promise<StandardPivotPoints | FibonacciPivotPoints> {
 
         return new Promise((resolve, reject) => {
 
@@ -63,14 +64,6 @@ export class PivotPoint  {
 
                     case Type.STANDARD:
                         return this.CalculateStandard(pivotPointParameters?.candle!)
-                    case Type.WOODIE:
-                        return this.CalculateWoodie(pivotPointParameters.candle!)
-    
-                    case Type.CAMARILLA:
-                        return this.CalculateCamarilla(pivotPointParameters.candle!)
-    
-                    case Type.DEMARK:
-                        return this.CalculateDemark(pivotPointParameters.candle!)
 
                     case Type.FIBONACCI:
                         return this.CalculateFibonacci(pivotPointParameters.candle!)
@@ -86,7 +79,7 @@ export class PivotPoint  {
 
     }
 
-    private CalculateStandard(candle: Candle): PivotPoints {
+    private CalculateStandard(candle: Candle): StandardPivotPoints {
 
         const pp = +((candle._high! + candle._low! + candle._close!) / 3).toFixed(4);
         const r1 = +((2 * pp) - candle._low!).toFixed(4);
@@ -99,11 +92,11 @@ export class PivotPoint  {
         const s3 = +(candle._low! - 2 *(candle._high! - pp)).toFixed(4);;
 
 
-        return new PivotPoints(r1, r2, r3, 0,  pp, s1, s2, s3, 0);
+        return new StandardPivotPoints(r1, r2, r3, pp, s1, s2, s3);
 
     }
 
-    private CalculateFibonacci(candle: Candle) {
+    private CalculateFibonacci(candle: Candle): FibonacciPivotPoints {
 
         const pp = +((candle._high! + candle._low! + candle._close!) / 3).toFixed(4);
         const r1 = +(pp + (candle._high! - candle._low!) * 0.3820).toFixed(4);
@@ -117,21 +110,8 @@ export class PivotPoint  {
         const s3 = +(pp - (candle._high! - candle._low!) * 1.0000).toFixed(4);;
 
 
-        return new PivotPoints(r1, r2, r3, 0, pp, s1, s2, s3, 0);
+        return new FibonacciPivotPoints(r1, r2, r3, pp, s1, s2, s3);
 
-    }
-
-    private CalculateWoodie(candle: Candle) {
-
-    }
-
-    
-    private CalculateCamarilla(candle: Candle) {
-        
-    }
-
-    private CalculateDemark(candle: Candle) {
-        
     }
 
 
