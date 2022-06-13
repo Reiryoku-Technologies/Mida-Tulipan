@@ -22,9 +22,9 @@
 
 export enum Type {
     STANDARD,
-    WOODIE,
-    CAMARILLA,
-    DEMARK,
+    // WOODIE,
+    // CAMARILLA,
+    // DEMARK,
     FIBONACCI
 };
 
