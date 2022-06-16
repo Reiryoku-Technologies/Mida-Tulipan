@@ -27,7 +27,7 @@ const DEFAULT_PIVOT_POINT_TYPE: Type = Type.STANDARD;
 const DEFAULT_PRICE = 0;
 
 
-export class PivotPoint  {
+export class PivotPoint {
 
     readonly #type: Type;
     readonly #open: number;
@@ -36,6 +36,7 @@ export class PivotPoint  {
     readonly #close: number;
 
     constructor({type, candle}: PivotPointParameters) {
+
 
         this.#type = type ?? DEFAULT_PIVOT_POINT_TYPE;
         this.#open = candle?.open ?? DEFAULT_PRICE;
@@ -64,17 +65,21 @@ export class PivotPoint  {
                 switch (pivotPointParameters.type) {
 
                     case Type.STANDARD:
-                        return this.CalculateStandard(pivotPointParameters?.candle!)
+                        resolve(this.CalculateStandard(pivotPointParameters?.candle!));
+                        break;
 
                     case Type.FIBONACCI:
-                        return this.CalculateFibonacci(pivotPointParameters.candle!)
+                        resolve(this.CalculateFibonacci(pivotPointParameters.candle!));
+                        break;
                 
                     default:
-                        return this.CalculateStandard(pivotPointParameters.candle!)
+                        resolve(this.CalculateStandard(pivotPointParameters.candle!));
+                        break;
                 }
                 
             } catch (error) {
                 console.log('An error occured.');
+                reject(error);
             }
         });
 
