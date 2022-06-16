@@ -56,20 +56,6 @@ export class StandardPivotPoints extends PivotPoints {}
 
 export class FibonacciPivotPoints extends PivotPoints {}
 
-export class Candle {
-    _open?: number;
-    _high?: number;
-    _low?: number;
-    _close?: number;
-
-    constructor(open: number, high: number, low: number, close: number) {
-     
-        this._open = open;
-        this._high = high;
-        this._low = low;
-        this._close = close;
-    }
-}
 
 export type PivotPointParameters = {
     type?: Type;
