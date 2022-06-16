@@ -20,6 +20,8 @@
  * THE SOFTWARE.
 */
 
+import { MidaPeriod } from '@reiryoku/mida';
+
 export enum Type {
     STANDARD,
     // WOODIE,
@@ -71,5 +73,5 @@ export class Candle {
 
 export type PivotPointParameters = {
     type?: Type;
-    candle?: Candle;
+    candle?: MidaPeriod;
 };
