@@ -51,10 +51,10 @@ export class PivotPoint  {
             try {
 
                 if (
-                    pivotPointParameters?.candle!._open! <= 0 || 
-                    pivotPointParameters?.candle!._high! <= 0 || 
-                    pivotPointParameters?.candle!._low!  <= 0 ||
-                    pivotPointParameters?.candle!._close! <= 0 
+                    pivotPointParameters?.candle!.open! <= 0 || 
+                    pivotPointParameters?.candle!.high! <= 0 || 
+                    pivotPointParameters?.candle!.low!  <= 0 ||
+                    pivotPointParameters?.candle!.close! <= 0 
                    ) {
 
                     throw new Error("Invalid candle data for pivot point calculation.")
