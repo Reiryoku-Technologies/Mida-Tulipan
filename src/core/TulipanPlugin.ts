@@ -31,7 +31,6 @@ import { Rsi, } from "#indicators/rsi/Rsi";
 import { Sma, } from "#indicators/sma/Sma";
 import { WilliamsR, } from "#indicators/willr/WilliamsR";
 import { Wma, } from "#indicators/wma/Wma";
-import { PivotPoint } from '#indicators/pivot-point/pivotpoint';
 
 const pluginId: string = "91788fa4-6410-4479-8e08-9261a474a46f";
 const pluginVersion: string = "2.1.0";
@@ -52,7 +51,6 @@ class TulipanPlugin extends MidaPlugin {
         actions.addIndicator("SMA", (parameters: GenericObject): MidaIndicator => new Sma(parameters));
         actions.addIndicator("Williams/%R", (parameters: GenericObject): MidaIndicator => new WilliamsR(parameters));
         actions.addIndicator("WMA", (parameters: GenericObject): MidaIndicator => new Wma(parameters));
-        actions.addIndicator("PivotPoint", (parameters: GenericObject): MidaIndicator => new Wma(parameters));
     }
 }
 
