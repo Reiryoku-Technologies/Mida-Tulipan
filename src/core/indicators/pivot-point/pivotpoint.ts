@@ -87,15 +87,15 @@ export class PivotPoint {
 
     private CalculateStandard(candle: MidaPeriod): StandardPivotPoints {
 
-        const pp = +((candle.high! + candle.low! + candle.close!) / 3).toFixed(4);
-        const r1 = +((2 * pp) - candle.low!).toFixed(4);
-        const s1 = +((2 * pp) - candle.high!).toFixed(4);
+        const pp = +((candle.high! + candle.low! + candle.close!) / 3).toFixed(5);
+        const r1 = +((2 * pp) - candle.low!).toFixed(5);
+        const s1 = +((2 * pp) - candle.high!).toFixed(5);
 
-        const r2 = +(pp + (candle.high! - candle.low!)).toFixed(4);
-        const s2 = +(pp - (candle.high! - candle.low!)).toFixed(4);
+        const r2 = +(pp + (candle.high! - candle.low!)).toFixed(5);
+        const s2 = +(pp - (candle.high! - candle.low!)).toFixed(5);
 
-        const r3 = +(candle.high! + 2 * (pp - candle.low!)).toFixed(4);
-        const s3 = +(candle.low! - 2 *(candle.high! - pp)).toFixed(4);;
+        const r3 = +(candle.high! + 2 * (pp - candle.low!)).toFixed(5);
+        const s3 = +(candle.low! - 2 *(candle.high! - pp)).toFixed(5);
 
 
         return new StandardPivotPoints(r1, r2, r3, pp, s1, s2, s3);
@@ -104,16 +104,16 @@ export class PivotPoint {
 
     private CalculateFibonacci(candle: MidaPeriod): FibonacciPivotPoints {
 
-        const pp = +((candle.high! + candle.low! + candle.close!) / 3).toFixed(4);
-        const r1 = +(pp + (candle.high! - candle.low!) * 0.3820).toFixed(4);
-        const s1 = +(pp - (candle.high! - candle.low!) * 0.3820).toFixed(4);
+        const pp = +((candle.high! + candle.low! + candle.close!) / 3).toFixed(5);
+        const r1 = +(pp + (candle.high! - candle.low!) * 0.3820).toFixed(5);
+        const s1 = +(pp - (candle.high! - candle.low!) * 0.3820).toFixed(5);
 
-        const r2 = +(pp + (candle.high! - candle.low!) * 0.6180).toFixed(4);
-        const s2 = +(pp - (candle.high! - candle.low!) * 0.6180).toFixed(4);
+        const r2 = +(pp + (candle.high! - candle.low!) * 0.6180).toFixed(5);
+        const s2 = +(pp - (candle.high! - candle.low!) * 0.6180).toFixed(5);
 
 
-        const r3 = +(pp + (candle.high! - candle.low!) * 1.0000).toFixed(4);
-        const s3 = +(pp - (candle.high! - candle.low!) * 1.0000).toFixed(4);;
+        const r3 = +(pp + (candle.high! - candle.low!) * 1.0000).toFixed(5);
+        const s3 = +(pp - (candle.high! - candle.low!) * 1.0000).toFixed(5);
 
 
         return new FibonacciPivotPoints(r1, r2, r3, pp, s1, s2, s3);
