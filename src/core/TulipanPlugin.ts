@@ -73,4 +73,7 @@ export { WilliamsRParameters, } from "#indicators/willr/WilliamsRParameters";
 
 export { Wma, } from "#indicators/wma/Wma";
 export { WmaParameters, } from "#indicators/wma/WmaParameters";
+
+export { PivotPoint, } from '#indicators/pivot-point/pivotpoint';
+export { PivotPointParameters, } from '#indicators/pivot-point/PivotPointParameters';
 // </public-api>
